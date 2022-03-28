@@ -1,4 +1,3 @@
-
 public abstract class Account extends IAccount {
 
     private static final int DEFAULT_AGENCY = 1;
@@ -17,6 +16,10 @@ public abstract class Account extends IAccount {
 
     @Override
     public void withdraw(double value) {
+        do{
+            System.out.println("Your withdraw amount is superior to your balance.");
+            System.out.println("Please insert another value.");
+        } while(value > balance);
         balance -= value;
     }
 
@@ -27,6 +30,11 @@ public abstract class Account extends IAccount {
 
     @Override
     public void transfer(double value, IAccount destinationAccount) {
+        do{
+            System.out.println("Your withdraw amount is superior to your balance.");
+            System.out.println("Please insert another value.");
+        } while(value > balance);
+        
         this.withdraw(value);
         destinationAccount.deposit(value);
     }
